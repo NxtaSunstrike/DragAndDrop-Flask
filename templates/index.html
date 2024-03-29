@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <title>Document</title>
+</head>
+<body>
+    <div class="toast">
+        <div class="toast-content">
+            <i class="fas fa-solid fa-check check"></i>
+            <div class="message">
+                <span class="text text-1">Success</span>
+                <span class="text text-2">Your changes has been saved</span>
+            </div>
+        </div>
+        <i class="fa-solid fa-xmark close"></i>
+        <div class="progress"></div>
+    </div>
+    <div class="wrapper">
+        <form action="" >
+            <h1>New Cloth</h1>
+            <div class="input-box">
+                <input id = 'name' placeholder="Cloth name" required>
+            </div>
+            <div class="input-box">
+                <input  id = 'description' placeholder="Description" required>
+            </div>
+            <div class="input-box">
+                <input  id = 'count' placeholder="Count" required>
+            </div>
+            <div class="input-box">
+                <input id  = 'price' placeholder="Price" required>
+            </div>
+            <div class = 'wrapper-img'>
+                <div class = "upload-wrapper">
+                    <div class="upload-area">
+                        <span class="botonArchivos">Upload files</span>
+                        <input type="file" name="archivos"  id="fileInput" hidden multiple required>
+                    </div>
+                    <div id = "archivosSeleccionados" class = "preview">
+                      <!-- image here -->
+                    </div>
+                </div>
+            </div>
+            <button id = 'upload' style="display: none;" onclick="uploadFiles()" >Subir archivos</button>
+        </form>
+    </div>
+</body>
+<script src="../static/js/index.js"></script>
+<script src="https://kit.fontawesome.com/9c61ead5a6.js" crossorigin="anonymous"></script>
+</html>
