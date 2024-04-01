@@ -1,26 +1,34 @@
 from flask import Flask, render_template, request, redirect, url_for
-from random import sample
 import os
+
+from functions.function_app import file_name
+from databases.requests import add_cloth,get_cloths,get_cloth_by_id
+
 
 app = Flask(__name__)
 
-
-@app.route("/")
+@app.route("/admin")
 def home():
-    return render_template('index.html')
-
-
-def file_name():
-    symbols = "0123456789abcdefghijklmnopqrstuvwxyz_".upper()
-    result_string = sample(symbols, 20)
-    return "".join(result_string)
-
+    return render_template('admin.html')
 
 @app.route('/upload', methods=['POST', 'GET'])
 def upload_files():
+    data = {
+        'img_paths': [],
+        'name':request.form['name'],
+        'description':request.form['description'],
+        'price':request.form['price'],
+        'count':request.form['count'],
+    } 
+
     for file in request.files.getlist('archivos'):
-        file.save(os.path.join('static/img', file_name() + ".jpg"))     
+        name_file = f'{file_name()}.jpg'
+        data['img_paths'].append(f'static/img/{name_file}')
+        file.save(os.path.join('static/img', name_file))
+    add_cloth(data)
+    print(data)
     return ''
+
 
 
 if __name__ == '__main__':

@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <form action="">
+            <h1>New Cloth</h1>
+            <div class="input-box">
+                <input type = 'text' id = 'name' name="name" placeholder="Cloth name" >
+            </div>
+            <div class="input-box">
+                <input  type = 'text' id = 'description' name = 'description' placeholder="Description" >
+            </div>
+            <div class="input-box">
+                <input  type = 'text' id = 'count' name = 'count 'placeholder="Count" >
+            </div>
+            <div class="input-box">
+                <input type = 'text' id  = 'price' name = 'price' placeholder="Price" >
+            </div>
+            <div class = 'wrapper-img'>
+                <div class = "upload-wrapper">
+                    <div class="upload-area">
+                        <span class="botonArchivos">Upload files</span>
+                        <input type="file" name="archivos"  id="fileInput" hidden multiple required>
+                    </div>
+                    <div id = "archivosSeleccionados" class = "preview">
+                      <!-- image here -->
+                    </div>
+                </div>
+            </div>
+            <button id = 'upload' style="display: none;" onclick="uploadFiles()" >Subir archivos</button>
+        </form>
+    </div>
+</body>
+<script src="../static/js/index.js"></script>
+<script src="https://kit.fontawesome.com/9c61ead5a6.js" crossorigin="anonymous"></script>
+</html> 

@@ -1,13 +1,7 @@
-
 let archivosSeleccionados = [];
 const button = document.querySelector(".botonArchivos");
 const inp = document.querySelector("#fileInput");
 var obj = document.getElementById('upload');
-
-
-      
-      
-
 
 obj.addEventListener('click', e => {
     if (obj.style.display == "block") { 
@@ -57,9 +51,9 @@ function mostrarArchivos() {
             const fileUrl = fileReader.result;
             const image = `
                 <div id="${id}" class="file-container">
-                    <center>
-                        <img class="imgFile" src="${fileUrl}" alt="${archivo.name}">
-                    </center>
+                    
+                    <img class="imgFile" src="${fileUrl}" alt="${archivo.name}">
+                    
                     <button type = "button" class="Cerrar">
                         <i class = "fas fa-times"></i>
                     </button>
@@ -79,11 +73,25 @@ function mostrarArchivos() {
 }
 function uploadFiles() {
     const formData = new FormData();
-    let str_for_alert = ''
-    
+    const name_cloth = document.getElementById('name').value;
+    const description = document.getElementById('description').value;
+    const price = document.getElementById('price').value;
+    const count = document.getElementById('count').value;
+
+    var about = {
+        'name':name_cloth,
+        'description':description,
+        'price':price,
+        'count':count
+    };
+
     archivosSeleccionados.forEach(archivo => {
         formData.append('archivos', archivo);
     });
+    
+    for (el in about) {
+        formData.append(el, about[el]);
+    };
     
     fetch('/upload', {
         method: 'POST',
